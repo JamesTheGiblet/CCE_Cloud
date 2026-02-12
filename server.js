@@ -91,9 +91,14 @@ app.get('/favicon.ico', (req, res) => res.status(204).end());
 // 3. Serve Frontend
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Explicitly serve index.html for root to ensure it loads
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // 4. Handle 404s (Catch-all for missing files/maps)
 app.use((req, res) => {
-  res.status(404).send('Not Found');
+  res.status(404).type('text').send('Not Found');
 });
 
 app.listen(PORT, () => {
