@@ -66,6 +66,16 @@ async function gatherData() {
             db.all(`SELECT timestamp, symbol, side, price, value FROM trades ORDER BY timestamp DESC LIMIT 20`, (err, rows) => {
                 if (err) return reject(err);
                 payload.trades = rows;
+            });
+
+            // 4. Get start date for days_running
+            db.get(`SELECT timestamp FROM cce_cycles ORDER BY timestamp ASC LIMIT 1`, (err, row) => {
+                if (err) return reject(err);
+                if (row) {
+                    const start = new Date(row.timestamp).getTime();
+                    const now = Date.now();
+                    payload.stats.days_running = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+                }
                 resolve(payload);
             });
         });
