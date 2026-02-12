@@ -56,13 +56,14 @@ async function gatherData() {
             });
 
             // 2. Get history (last 30 cycles ~ 5 days, or adjust limit)
-            db.all(`SELECT timestamp, portfolio_value FROM cce_cycles ORDER BY timestamp ASC LIMIT 100`, (err, rows) => {
+            // Use subquery to get LATEST 100 records, then sort ASC for the chart
+            db.all(`SELECT * FROM (SELECT timestamp, portfolio_value FROM cce_cycles ORDER BY timestamp DESC LIMIT 100) ORDER BY timestamp ASC`, (err, rows) => {
                 if (err) return reject(err);
                 payload.history = rows;
             });
 
             // 3. Get recent trades
-            db.all(`SELECT timestamp, symbol, side, price, value FROM trades ORDER BY timestamp DESC LIMIT 10`, (err, rows) => {
+            db.all(`SELECT timestamp, symbol, side, price, value FROM trades ORDER BY timestamp DESC LIMIT 20`, (err, rows) => {
                 if (err) return reject(err);
                 payload.trades = rows;
                 resolve(payload);

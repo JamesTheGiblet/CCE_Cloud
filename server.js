@@ -15,7 +15,7 @@ app.use(helmet({
     useDefaults: false,
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'"], // Allow inline scripts for charts
+      scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"], // Allow Chart.js CDN
       styleSrc: ["'self'", "'unsafe-inline'"],
       imgSrc: ["'self'", "data:"], // Allow favicon and data URIs
       connectSrc: ["'self'"]
