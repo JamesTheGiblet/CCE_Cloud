@@ -1,0 +1,4 @@
+# Configure Railway/Nixpacks build behavior
+
+[phases.install]
+cmds = ["npm install --omit=dev"]

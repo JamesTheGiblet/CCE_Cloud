@@ -61,11 +61,6 @@ This project is optimized for Railway, but works on any Node.js host.
     - Go to the "Variables" tab in Railway.
     - Add `SYNC_SECRET`: Generate a strong password (e.g., `Xy9#mK2$pL5vQ`).
     - (Optional) `PORT`: Railway sets this automatically, but you can define it if needed.
-    - **Build Config**: If you see `npm warn config production Use --omit=dev instead`, update the **Install Command** in Railway Settings to:
-
-      ```bash
-      npm install --omit=dev
-      ```
 
 4. **Get Public URL**:
     - Railway will generate a domain (e.g., `cce-dashboard.up.railway.app`).
