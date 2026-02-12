@@ -91,6 +91,9 @@ app.get('/favicon.ico', (req, res) => res.status(204).end());
 // 3. Serve Frontend
 app.use(express.static(path.join(__dirname, 'public')));
 
+// 4. Serve Pocket PWA
+app.use('/pocket', express.static(path.join(__dirname, 'pocket')));
+
 // Explicitly serve index.html for root to ensure it loads
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));

@@ -1,6 +1,6 @@
 // Settings state
 let settings = {
-    cloudUrl: 'https://cce.gibletscreations.com',
+    cloudUrl: window.location.origin, // Auto-detect current server URL
     notifyStateChanges: true,
     notifyTrades: true,
     notifySystemAlerts: true,

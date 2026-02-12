@@ -134,26 +134,35 @@ Pocket:    PWA (manifest.json + service worker)
 ### Key Files
 
 ```
-cce-cloud/
-├── server.js              # Express server + API endpoints
-├── package.json           # Dependencies (express, helmet, cors)
-├── public/
-│   └── index.html        # Main dashboard (Chart.js, responsive)
-├── pocket/               # 📱 NEW - Mobile PWA
-│   ├── index.html       # Home dashboard
-│   ├── history.html     # State timeline & trades
-│   ├── settings.html    # Full configuration
-│   ├── manifest.json    # PWA manifest
-│   ├── css/
-│   │   └── style.css   # All styles (~980 lines)
-│   └── js/
-│       ├── app.js      # Home logic
-│       ├── history.js  # History logic
-│       ├── settings.js # Settings logic
-│       ├── api.js      # API wrapper
-│       └── sw.js       # Service worker (offline)
-└── .env.example         # Template (SYNC_SECRET, PORT)
-```
+Folder PATH listing for volume OS
+Volume serial number is 320F-4774
+C:.
+│   cloud-sync.js
+│   ecosystem.config.js
+│   nixpacks.toml
+│   package.json
+│   README.md
+│   server.js
+│   
+├───pocket
+│   │   history.html
+│   │   index.html
+│   │   manifest.json
+│   │   settings.html
+│   │
+│   ├───css
+│   │       style.css
+│   │
+│   ├───icons
+│   └───js
+│           api.js
+│           app.js
+│           history.js
+│           settings.js
+│           sw.js
+│
+└───public
+        index.html
 
 ---
 
@@ -166,8 +175,10 @@ Push latest trading state from your Pi.
 **Headers:**
 
 ```
+
 x-sync-secret: <your-secret>
 Content-Type: application/json
+
 ```
 
 **Body:**
