@@ -12,6 +12,7 @@ const SYNC_SECRET = process.env.SYNC_SECRET;
 // Security Middleware
 app.use(helmet({
   contentSecurityPolicy: {
+    useDefaults: false,
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "'unsafe-inline'"], // Allow inline scripts for charts
@@ -84,8 +85,16 @@ app.get('/api/data', (req, res) => {
   res.json(dashboardState);
 });
 
+// Fix for favicon.ico 404/CSP issues
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 // 3. Serve Frontend
 app.use(express.static(path.join(__dirname, 'public')));
+
+// 4. Handle 404s (Catch-all for missing files/maps)
+app.use((req, res) => {
+  res.status(404).send('Not Found');
+});
 
 app.listen(PORT, () => {
   console.log(`🚀 Cloud Dashboard running on port ${PORT}`);
