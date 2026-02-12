@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0f172a">
     <title>Settings - CCE Pocket</title>
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icon-192.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -29,7 +29,7 @@
                 <div class="setting-info">
                     <div class="setting-label">Cloud URL</div>
                     <div class="setting-description" id="cloud-url-display">
-                        https://cce.gibletscreations.com
+                        https://ccecloud-production.up.railway.app
                     </div>
                 </div>
                 <button class="setting-action" id="edit-url-btn">Edit</button>
@@ -61,7 +61,7 @@
             
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-label">State Changes</div>
+                    <label for="notify-state-changes" class="setting-label">State Changes</label>
                     <div class="setting-description">Get notified when trading state changes</div>
                 </div>
                 <label class="toggle">
@@ -72,7 +72,7 @@
 
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-label">Trades</div>
+                    <label for="notify-trades" class="setting-label">Trades</label>
                     <div class="setting-description">Get notified when trades execute</div>
                 </div>
                 <label class="toggle">
@@ -83,7 +83,7 @@
 
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-label">System Alerts</div>
+                    <label for="notify-system-alerts" class="setting-label">System Alerts</label>
                     <div class="setting-description">Critical alerts (node offline, errors)</div>
                 </div>
                 <label class="toggle">
@@ -94,7 +94,7 @@
 
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-label">Daily Summary</div>
+                    <label for="notify-daily-summary" class="setting-label">Daily Summary</label>
                     <div class="setting-description">Daily performance report</div>
                 </div>
                 <label class="toggle">
@@ -105,7 +105,7 @@
 
             <div class="setting-item" id="daily-time-setting">
                 <div class="setting-info">
-                    <div class="setting-label">Summary Time</div>
+                    <label for="daily-summary-time" class="setting-label">Summary Time</label>
                     <div class="setting-description">When to receive daily summary</div>
                 </div>
                 <input type="time" id="daily-summary-time" value="08:00" class="time-input">
@@ -128,10 +128,10 @@
             
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-label">Theme</div>
+                    <label for="theme-select" class="setting-label">Theme</label>
                     <div class="setting-description">App color scheme</div>
                 </div>
-                <select id="theme-select" class="select-input">
+                <select id="theme-select" class="select-input" title="Select app theme">
                     <option value="dark">Dark</option>
                     <option value="light">Light (Coming Soon)</option>
                     <option value="auto">Auto (Coming Soon)</option>
@@ -140,11 +140,11 @@
 
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-label">Compact Mode</div>
+                    <label for="compact-mode" class="setting-label">Compact Mode</label>
                     <div class="setting-description">Smaller cards and spacing</div>
                 </div>
                 <label class="toggle">
-                    <input type="checkbox" id="compact-mode">
+                    <input type="checkbox" id="compact-mode" title="Enable compact mode">
                     <span class="toggle-slider"></span>
                 </label>
             </div>
@@ -166,7 +166,7 @@
 
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-label">Auto-Refresh</div>
+                    <label for="auto-refresh" class="setting-label">Auto-Refresh</label>
                     <div class="setting-description">Update data automatically</div>
                 </div>
                 <label class="toggle">
@@ -177,10 +177,10 @@
 
             <div class="setting-item">
                 <div class="setting-info">
-                    <div class="setting-label">Refresh Interval</div>
+                    <label for="refresh-interval" class="setting-label">Refresh Interval</label>
                     <div class="setting-description">How often to check for updates</div>
                 </div>
-                <select id="refresh-interval" class="select-input">
+                <select id="refresh-interval" class="select-input" title="Select refresh interval">
                     <option value="30">30 seconds</option>
                     <option value="60" selected>1 minute</option>
                     <option value="300">5 minutes</option>
@@ -257,7 +257,7 @@
 
         <!-- Footer -->
         <div class="settings-footer">
-            <p>Made with discipline by <a href="https://gibletscreations.com" target="_blank">Giblets Creations</a></p>
+            <p>Made with discipline by <a href="https://gibletscreations.com" target="_blank" rel="noopener">Giblets Creations</a></p>
             <p class="footer-tagline">Sovereign. Deterministic. Disciplined.</p>
         </div>
     </main>
