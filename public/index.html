@@ -298,6 +298,31 @@
         }
 
         /* Responsive */
+        #main-content {
+            display: none;
+        }
+
+        #main-content.visible {
+            display: block;
+        }
+
+        .chart-title {
+            margin-bottom: 20px;
+        }
+
+        .table-title {
+            margin-bottom: 20px;
+        }
+
+        .trade-reason {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .transition-reason {
+            color: var(--text-secondary);
+        }
+
         @media (max-width: 768px) {
             .container { padding: 15px; }
             header { flex-direction: column; gap: 20px; align-items: flex-start; }
